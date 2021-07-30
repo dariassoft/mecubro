@@ -115,6 +115,20 @@ class AuthController extends Controller
         }
     }
 
+    public function stats(Request $request){
+        $usersForce = Dnas::where('result', 1)->get();
+        $nonUsersForce = Dnas::where('result', 0)->get();
+        $usersForce = $usersForce?count($usersForce):0;
+        $nonUsersForce = $nonUsersForce?count($nonUsersForce):0;
+        $ratio = $usersForce / ($usersForce + $nonUsersForce);
+
+        return response()->json([
+            'force_user_dna' => $usersForce,
+            'non_force_user_dna' => $nonUsersForce,
+            'ratio' => $ratio,
+        ]);
+    }
+
     protected function isForceUser($dna)
     {
         $string_valid = [
