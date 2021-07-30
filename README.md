@@ -2,8 +2,6 @@
 
 Podra realizarse la verificacion de la prueba atraves de un cliente Rest como Postman. 
 
-## Codigo Fuente GitHub https://github.com/dariassoft/mecubro
-
 ## Login
 Lanzar la solicitud POST a
 <pre>
