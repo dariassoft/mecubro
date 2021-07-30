@@ -17,7 +17,7 @@ parametros en Raw.
     "remember_me": true
 }
 </pre>
-![Login](API Login.png)
+![Login](API_Login.png)
 
 Se obtendra el token que se debe utilizar en todas las llamadas de pruebas.
 
@@ -43,9 +43,9 @@ en el Body como Raw agregar los datos de prueba de la siguiente manera.
 </pre>
 
 El resultado puede ser un response 200 o 403, dependiendo si el usuario tiene cadena adn valida.
-![HTTP200_Response](API Force User Post 200 HTTP.png)
+![HTTP200_Response](API_Force_User_Post_200_HTTP.png)
 
-![403 Forbidden_Response](API Force User Post 403 Forbiden.png)
+![403 Forbidden_Response](API_Force_User_Post_403_Forbiden.png)
 
 
 ## Stats 
@@ -63,7 +63,7 @@ Se recibira una respuesta del tipo.
 }
 </pre>
 
-![Stats_Response](API Force Stats.png)
+![Stats_Response](API_Force_Stats.png)
 
 
 
