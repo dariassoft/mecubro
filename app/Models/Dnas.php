@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Dnas extends Model
 {
     use HasFactory;
+    protected $fillable = ['dna', 'result'];
 }

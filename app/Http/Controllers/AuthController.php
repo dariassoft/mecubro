@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dnas;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -91,9 +92,25 @@ class AuthController extends Controller
             "dna.*"  => "required|string",
         ]);
         $dna = request(['dna']);
+
+        $reg = Dnas::where('dna', serialize($dna))->first();
+        if($reg){
+            if ( $reg->result == 0 ) {
+                return response()->json(['ERROR' => 'Non Force-User'],403);
+            }else {
+                return response()->json(['SUCCESS' => 'Force-User']);
+            }
+        }
+
+        $reg = new Dnas();
+        $reg->dna = serialize($dna);
         if ( $this->isForceUser($dna) == 0 ) {
+            $reg->result = 0;
+            $reg->save();
             return response()->json(['ERROR' => 'Non Force-User'],403);
         }else {
+            $reg->result = 1;
+            $reg->save();
             return response()->json(['SUCCESS' => 'Force-User']);
         }
     }

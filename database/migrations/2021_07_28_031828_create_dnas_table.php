@@ -15,7 +15,8 @@ class CreateDnasTable extends Migration
     {
         Schema::create('dnas', function (Blueprint $table) {
             $table->id();
-            $table->string("dna",55)->unique('dna');
+            $table->string("dna",255)->unique('dna');
+            $table->unsignedBigInteger("result")->default(0);
             $table->timestamps();
         });
     }
